@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/LayoutPartial/_HeaderPartial.cshtml")
+
+<body>
+    @await Component.InvokeAsync("_NavbarPartial")
+
+    @await Component.InvokeAsync("_SearchModalPartial")
+
+    @await Component.InvokeAsync("_FeaturePartial")
+
+    @await Component.InvokeAsync("_MainPostPartial")
+
+    @await Component.InvokeAsync("_BannerPartial")
+
+    @await Component.InvokeAsync("_LatestNewsPartial")
+
+    @await Component.InvokeAsync("_PopularNewsPartial")
+
+    @await Component.InvokeAsync("_FooterPartial")
+
+    @await Html.PartialAsync("/Views/LayoutPartial/_CopyrightPartial.cshtml")
+
+    @await Html.PartialAsync("/Views/LayoutPartial/_ScriptPartial.cshtml")
+</body>
+
+</html>
