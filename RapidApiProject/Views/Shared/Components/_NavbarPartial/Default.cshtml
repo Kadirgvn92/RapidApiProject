@@ -50,7 +50,7 @@
             <nav class="navbar navbar-light navbar-expand-xl">
                 <a href="index.html" class="navbar-brand mt-3">
                     <p class="text-primary display-6 mb-2" style="line-height: 0;">Filmy</p>
-                    <small class="text-body fw-normal" style="letter-spacing: 12px;">Filmy</small>
+                    @* <small class="text-body fw-normal" style="letter-spacing: 12px;">Filmy</small> *@
                 </a>
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>
@@ -91,21 +91,27 @@
         </div>
     </div>
 </div>
-<!-- jQuery CDN -->
-<!-- jQuery CDN -->
 
-<!-- AJAX isteği için JavaScript kodları -->
 <script>
+
     $(document).ready(function () {
         $.ajax({
-            url: '/Home/GetWeather', // AJAX isteği göndereceğiniz route adresi
+            url: '/Default/GetWeather', // API isteği göndereceğimiz URL
             type: 'GET',
             dataType: 'json', // API'den JSON veri bekliyoruz
             success: function (data) {
-                // Başarılı şekilde veri alındığında burası çalışacak
-                $('#weather-temperature').text(data.temperature + '°C');
-                $('#weather-location').text(data.location);
-                $('#weather-date').text(data.date);
+                console.log(data);
+                var weather = data.result[0]; // İlk günün hava durumu örneği
+
+                // Sıcaklık verisini virgülden önceki kısmı alarak ayarla
+                var temperature = weather.degree.split('.')[0];
+                $('#weather-temperature').text(temperature + '°C');
+
+                // Şehir ismini ilk harfi büyük, diğerleri küçük yaparak ayarla
+                var city = data.city.charAt(0).toUpperCase() + data.city.slice(1).toLowerCase();
+                $('#weather-location').text(city);
+
+                $('#weather-date').text(weather.date);
             },
             error: function () {
                 // Hata durumunda burası çalışacak
