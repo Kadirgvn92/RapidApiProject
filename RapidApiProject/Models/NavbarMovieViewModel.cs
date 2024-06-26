@@ -1,46 +1,20 @@
-﻿namespace RapidApiProject.Models;
-
-public class NavbarMovieViewModel
+﻿namespace RapidApiProject.Models
 {
+    public class NavbarMovieViewModel
+    {
+        public int rank { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
+        public string big_image { get; set; }
+        public string[] genre { get; set; }
+        public string thumbnail { get; set; }
+        public string rating { get; set; }
+        public string id { get; set; }
+        public int year { get; set; }
+        public string imdbid { get; set; }
+        public string imdb_link { get; set; }
 
-    public bool success { get; set; }
-    public Result result { get; set; }
+
+    }
 }
-
-public class Result
-{
-    public string Title { get; set; }
-    public string Year { get; set; }
-    public string Rated { get; set; }
-    public string Released { get; set; }
-    public string Runtime { get; set; }
-    public string Genre { get; set; }
-    public string Director { get; set; }
-    public string Writer { get; set; }
-    public string Actors { get; set; }
-    public string Plot { get; set; }
-    public string Language { get; set; }
-    public string Country { get; set; }
-    public string Awards { get; set; }
-    public string Poster { get; set; }
-    public Rating[] Ratings { get; set; }
-    public string Metascore { get; set; }
-    public string imdbRating { get; set; }
-    public string imdbVotes { get; set; }
-    public string imdbID { get; set; }
-    public string Type { get; set; }
-    public string DVD { get; set; }
-    public string BoxOffice { get; set; }
-    public string Production { get; set; }
-    public string Website { get; set; }
-    public string Response { get; set; }
-}
-
-public class Rating
-{
-    public string Source { get; set; }
-    public string Value { get; set; }
-}
-
-
-

@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using RapidApiProject.Models;
 using RestSharp;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RapidApiProject.ViewComponents
@@ -10,22 +12,43 @@ namespace RapidApiProject.ViewComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var client = new RestClient("https://api.collectapi.com/imdb/imdbSearchById?movieId=tt1375666");
+            int dailyIndex = GetDailyIndex();
+            var client = new RestClient("https://imdb-top-100-movies.p.rapidapi.com/");
             var request = new RestRequest(Method.GET);
-            request.AddHeader("authorization", "apikey 3vLvr8BLRuJZH5KJDssMMM:3s0zddCcs13UHM3tSE1TPp");
-            request.AddHeader("content-type", "application/json");
+            request.AddHeader("x-rapidapi-key", "1b835557bamsh51f42a1ec11b465p131830jsn7e5d47c9227c");
+            request.AddHeader("x-rapidapi-host", "imdb-top-100-movies.p.rapidapi.com");
             IRestResponse response = client.Execute(request);
 
             if (response.IsSuccessful)
             {
-                var movieResponse = JsonConvert.DeserializeObject<NavbarMovieViewModel>(response.Content);
-                return View(movieResponse);
+                var apiResponse = JsonConvert.DeserializeObject<List<NavbarMovieViewModel>>(response.Content);
+
+                // Günlük indeks için kullanılacak sayısal bir fonksiyon veya algoritma (örneğin tarih bazlı bir hesaplama)
+                int index = dailyIndex % apiResponse.Count;
+
+                var dailyMovie = apiResponse[index];
+
+                return View(dailyMovie);
+
             }
-            else
-            {
-                // Hata durumu için uygun bir işlem yapabilirsiniz
-                return View(new NavbarMovieViewModel()); // Boş bir model gönderilebilir
-            }
+
+            return View(new NavbarMovieViewModel()); // Return an empty model if there is an error or the list is empty
         }
+        private int GetDailyIndex()
+        {
+            // Bugünün tarihini alalım
+            DateTime today = DateTime.Today;
+
+            // Örneğin, günün ay içindeki indeksini ve yıl içindeki indeksini kullanarak bir indeks oluşturalım
+            int dayIndex = today.Day; // Günün ay içindeki indeksi (1-31)
+            int monthIndex = today.Month; // Ayın yıl içindeki indeksi (1-12)
+            int yearIndex = today.Year; // Yıl
+
+            // Basit bir şekilde bu değerleri birleştirip bir indeks oluşturalım
+            int dailyIndex = dayIndex + (monthIndex * 100) + (yearIndex * 10000);
+
+            return dailyIndex;
+        }
+
     }
 }

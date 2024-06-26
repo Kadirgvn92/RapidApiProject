@@ -142,15 +142,24 @@
 
 #note {
     position: relative;
-    animation: noteAnimate 30s infinite;
+    animation: noteAnimate 10s infinite;
     animation-timing-function: ease-in-out;
     display: flex;
     align-items: center;
 }
 
 @keyframes noteAnimate {
-    from {left: -735px;}
-    to {left: 735px;}
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: 100px;
+    }
+
+    100% {
+        left: 0;
+    }
 }
 
 /*** Topbar End ***/
