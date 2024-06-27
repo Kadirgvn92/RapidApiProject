@@ -1,81 +1,25 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model NamazViewModel
+
 <div class="container-fluid latest-news py-5">
     <div class="container py-5">
-        <h2 class="mb-4">Latest News</h2>
+        <h2 class="mb-4">İstanbul Namaz Vakitleri </h2>
         <div class="latest-news-carousel owl-carousel">
-            <div class="latest-news-item">
-                <div class="bg-light rounded">
-                    <div class="rounded-top overflow-hidden">
-                        <img src="img/news-7.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                    </div>
-                    <div class="d-flex flex-column p-4">
-                        <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
+            @foreach (var item in Model.result)
+            {
+                <div class="latest-news-item">
+                    <div class="bg-light rounded">
+                        <div class="rounded-top overflow-hidden">
+                            <img src="/Newsers-1.0.0/img/Namaz.jpeg" class="img-zoomin img-fluid rounded-top w-100" alt="">
+                        </div>
+                        <div class="d-flex flex-column p-4">
+                            <a href="#" class="h4">@item.vakit</a>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-body d-block"><i class="fas fa-clock-alt me-1"></i> @item.saat</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="latest-news-item">
-                <div class="bg-light rounded">
-                    <div class="rounded-top overflow-hidden">
-                        <img src="img/news-6.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                    </div>
-                    <div class="d-flex flex-column p-4">
-                        <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-news-item">
-                <div class="bg-light rounded">
-                    <div class="rounded-top overflow-hidden">
-                        <img src="img/news-3.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                    </div>
-                    <div class="d-flex flex-column p-4">
-                        <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-news-item">
-                <div class="bg-light rounded">
-                    <div class="rounded-top overflow-hidden">
-                        <img src="img/news-4.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                    </div>
-                    <div class="d-flex flex-column p-4">
-                        <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-news-item">
-                <div class="bg-light rounded">
-                    <div class="rounded-top overflow-hidden">
-                        <img src="img/news-5.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                    </div>
-                    <div class="d-flex flex-column p-4">
-                        <a href="#" class="h4 ">Lorem Ipsum is simply dummy text of...</a>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
