@@ -4,6 +4,9 @@
 <div class="container-fluid features mb-5">
     <div class="container py-5">
         <div class="row g-4">
+            <h4 class="text-center">
+                Vizyondaki Filmler
+            </h4>
             @foreach(var item in Model.OrderByDescending(x => x.id).Take(4))
             {
                 <div class="col-md-6 col-lg-6 col-xl-3">
@@ -19,7 +22,7 @@
                         <div class="col-8">
                             <div class="features-content d-flex flex-column">
                                 @* <p class="text-uppercase mb-2">@item.title</p> *@
-                                <a href="#" class="h6">
+                                <a href="@item.imdb_link" class="h6">
                                     @item.title
                                 </a>
                                 <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> @item.year</small>
