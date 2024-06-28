@@ -5,19 +5,19 @@ using RestSharp;
 
 namespace RapidApiProject.ViewComponents;
 
-public class _FeaturePartial : ViewComponent
+public class NewsSidebarPartial : ViewComponent
 {
     public IViewComponentResult Invoke()
     {
-        var client = new RestClient("https://imdb-top-100-movies.p.rapidapi.com/");
+        var client = new RestClient("https://api.collectapi.com/news/getNews?country=tr&tag=general");
         var request = new RestRequest(Method.GET);
-        request.AddHeader("x-rapidapi-key", "a0a48114fdmsh17deeff65810c77p14e99bjsn37343ba56f23");
-        request.AddHeader("x-rapidapi-host", "imdb-top-100-movies.p.rapidapi.com");
+        request.AddHeader("authorization", "apikey 3vLvr8BLRuJZH5KJDssMMM:3s0zddCcs13UHM3tSE1TPp");
+        request.AddHeader("content-type", "application/json");
         IRestResponse response = client.Execute(request);
 
         if (response.IsSuccessful)
         {
-            var apiResponse = JsonConvert.DeserializeObject<List<NavbarMovieViewModel>>(response.Content);
+            var apiResponse = JsonConvert.DeserializeObject<NewsViewModel>(response.Content);
             return View(apiResponse);
         }
         return View();

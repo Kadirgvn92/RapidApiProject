@@ -15,7 +15,7 @@ namespace RapidApiProject.ViewComponents
             int dailyIndex = GetDailyIndex();
             var client = new RestClient("https://imdb-top-100-movies.p.rapidapi.com/");
             var request = new RestRequest(Method.GET);
-            request.AddHeader("x-rapidapi-key", "1b835557bamsh51f42a1ec11b465p131830jsn7e5d47c9227c");
+            request.AddHeader("x-rapidapi-key", "a0a48114fdmsh17deeff65810c77p14e99bjsn37343ba56f23");
             request.AddHeader("x-rapidapi-host", "imdb-top-100-movies.p.rapidapi.com");
             IRestResponse response = client.Execute(request);
 

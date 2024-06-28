@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/LayoutPartial/_HeaderPartial.cshtml")
+
+<body>
+    @await Component.InvokeAsync("_NavbarPartial")
+
+    @await Component.InvokeAsync("_SearchModalPartial")
+
+    <div style="margin:auto;text-align:center;width:400px;max-width: 700px;" class="mt-4 mb-4"><a href="https://www.eczaneler.gen.tr/nobetci-bursa-nilufer" target="_blank"><img src="https://www.eczaneler.gen.tr/resimler/nobetci-eczane.jpg" alt="Nilüfer nöbetçi eczaneleri" style="width:100&#37;;border-radius:2px;"></a><iframe src="https://www.eczaneler.gen.tr/iframe.php?lokasyon=1829" name="Nilüfer nöbetçi eczaneleri" style="width:100&#37;;height:900px;border:none;"></iframe></div>
+
+    @await Component.InvokeAsync("_FooterPartial")
+
+    @await Html.PartialAsync("/Views/LayoutPartial/_CopyrightPartial.cshtml")
+
+    @await Html.PartialAsync("/Views/LayoutPartial/_ScriptPartial.cshtml")
+
+
+</body>
+
+</html>
