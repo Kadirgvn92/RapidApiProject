@@ -28,7 +28,6 @@ This project is designed to enhance your API consumption skills by integrating v
 
 <img  src = "1.png"/><br>
 <img  src = "2.png"/><br>
-<img  src = "3.png"/><br>
 <img  src = "4.png"/><br>
 <img  src = "5.png"/><br>
 <img  src = "6.png"/><br>
