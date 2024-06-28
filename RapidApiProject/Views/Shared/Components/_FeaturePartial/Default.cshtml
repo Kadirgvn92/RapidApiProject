@@ -1,4 +1,4 @@
-﻿@model List<NavbarMovieViewModel>
+﻿@model MovieViewModel
 <!-- Modal Search End -->
 <!-- Features Start -->
 <div class="container-fluid features mb-5">
@@ -7,23 +7,23 @@
             <h4 class="text-center">
                 Vizyondaki Filmler
             </h4>
-            @foreach(var item in Model.OrderByDescending(x => x.id).Take(4))
+            @foreach(var item in Model.result.OrderByDescending(x => x.name).Take(4))
             {
                 <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="row g-4 align-items-center features-item">
                         <div class="col-4">
                             <div class="rounded-circle position-relative">
                                 <div class="overflow-hidden">
-                                    <img src="@item.image" style="border-radius:10px;" class="img-zoomin img-fluid w-100" alt="">
+                                    <img src="@item.img" style="border-radius:10px;" class="img-zoomin img-fluid w-100" alt="">
                                 </div>
-                                <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">@item.rating</span>
+                                <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">@item.rate</span>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="features-content d-flex flex-column">
                                 @* <p class="text-uppercase mb-2">@item.title</p> *@
-                                <a href="@item.imdb_link" class="h6">
-                                    @item.title
+                                <a href="@item.url" class="h6">
+                                    @item.name
                                 </a>
                                 <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> @item.year</small>
                             </div>

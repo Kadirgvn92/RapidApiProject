@@ -9,7 +9,7 @@ public class _PopularNewsPartial : ViewComponent
 {
     public IViewComponentResult Invoke()
     {
-        var client = new RestClient("https://api.collectapi.com/book/newBook");
+        var client = new RestClient("https://api.collectapi.com/watching/moviesPlaying");
         var request = new RestRequest(Method.GET);
         request.AddHeader("authorization", "apikey 3vLvr8BLRuJZH5KJDssMMM:3s0zddCcs13UHM3tSE1TPp");
         request.AddHeader("content-type", "application/json");
@@ -17,7 +17,7 @@ public class _PopularNewsPartial : ViewComponent
 
         if (response.IsSuccessful)
         {
-            var data = JsonConvert.DeserializeObject<BookViewModel>(response.Content);
+            var data = JsonConvert.DeserializeObject<FilmViewModel>(response.Content);
             return View(data);  
         }
         return View();
