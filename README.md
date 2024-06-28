@@ -25,8 +25,5 @@ This project is designed to enhance your API consumption skills by integrating v
 - RestSharp library
 - Newtonsoft.Json library
 
-### Installation
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/your-repo-name.git
+<img  src = "1.png"/>
